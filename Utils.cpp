@@ -1,8 +1,18 @@
 #include "VMStack.h"
 
+int lastbr( std::string str )
+{
+    auto tmp = str.length();
+    while( str[tmp] != ')' )
+    {
+        tmp--;
+    }
+    return tmp;
+}
+
 std::string getValue( std::string str )
 {
-    str = str.substr(0, str.size() - 1 );
+    str = str.substr(0, lastbr(str) );
     return (str);
 }
 
